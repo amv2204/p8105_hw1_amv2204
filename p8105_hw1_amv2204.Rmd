@@ -1,5 +1,6 @@
 ---
-title: "p8105_hw1_amv2204.Rmd"
+title: "Homework 1"
+author: Ashwini Varghese
 output: github_document
 date: "2022-09-22"
 ---
