@@ -38,39 +38,41 @@ ggsave("First_plot.pdf", height = 4, width = 4)
 ```
 
 
+# Problem 2:
 
+For problem 2, we will create a data frame of 10 observations and 4 variables.
 
+```{r fourth_block}
+library(tibble)
 
+four_df = tibble (
+  random = rnorm(10),
+  vec_logic = random > 0,
+  vec_chara = c("car", "boat", "truck", "plane", "jet", "cycle", "moped", "earth", "sea", "land"),
+  vec_factor = factor(c("top", "middle", "bottom", "top", "middle", "bottom", "top", "middle", "bottom", "top"))
+)
 
-
-
-
-
-
-
-
-
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+four_df
 ```
 
-## R Markdown
+We will try to take the mean of each variable.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r averages, collapse = TRUE}
+library(tidyverse)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+mean(pull(four_df, random))
+mean(pull(four_df, vec_logic))
+mean(pull(four_df, vec_chara))
+mean(pull(four_df, vec_factor))
 ```
+We are able to get the mean of the variables `random` and `vec_logic`. However the other two variables, `vec_chara` and `vec_factor`, did not produce an average because the values are not logical nor numerical.
 
-## Including Plots
+We can attempt to convert the logic, character, and factor variables to a numeric variables using the `as.numeric` functioN.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r conversion, eval = FALSE}
+as.numeric(factor(c("car", "boat", "truck", "plane", "jet", "cycle", "moped", "earth", "sea", "land")))
+as.numeric(factor(c("top", "middle", "bottom", "top", "middle", "bottom", "top", "middle", "bottom", "top")))
+as.numeric(factor(c(random > 0)))
 ```
+When we use this function, it converts the values in the character and factor variables into numeric values. This shows why we were unable to get the mean previously.
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
