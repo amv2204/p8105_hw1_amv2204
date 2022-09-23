@@ -72,7 +72,7 @@ We can attempt to convert the logic, character, and factor variables to a numeri
 ```{r conversion, eval = FALSE}
 as.numeric(factor(c("car", "boat", "truck", "plane", "jet", "cycle", "moped", "earth", "sea", "land")))
 as.numeric(factor(c("top", "middle", "bottom", "top", "middle", "bottom", "top", "middle", "bottom", "top")))
-as.numeric(factor(c(random > 0)))
+as.numeric((pull(four_df, vec_logic)))
 ```
 When we use this function, it converts the values in the character and factor variables into numeric values. This shows why we were unable to get the mean previously.
 
