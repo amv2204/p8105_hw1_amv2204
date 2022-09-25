@@ -2,7 +2,7 @@
 title: "Homework 1"
 author: Ashwini Varghese
 output: github_document
-date: "2022-09-22"
+date: "2022-09-24"
 ---
 
 # Problem 1:
@@ -67,7 +67,7 @@ mean(pull(four_df, vec_factor))
 ```
 We are able to get the mean of the variables `random` and `vec_logic`. However the other two variables, `vec_chara` and `vec_factor`, did not produce an average because the values are not logical nor numerical.
 
-We can attempt to convert the logic, character, and factor variables to a numeric variables using the `as.numeric` functioN.
+We can attempt to convert the logic, character, and factor variables to a numeric variables using the `as.numeric` function.
 
 ```{r conversion, eval = FALSE}
 as.numeric(factor(c("car", "boat", "truck", "plane", "jet", "cycle", "moped", "earth", "sea", "land")))
